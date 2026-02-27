@@ -1,0 +1,3 @@
+[submodule "SmugglerLib"]
+	path = SmugglerLib
+	url = https://github.com/ParkJungwhan/SmugglerLib.git
