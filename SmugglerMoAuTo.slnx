@@ -1,3 +1,10 @@
 <Solution>
+  <Folder Name="/Lib/">
+    <Project Path="SmugglerLib/SmugCommon/SmugCommon.csproj">
+      <Platform Project="x64" />
+    </Project>
+    <Project Path="SmugglerLib/SmugControl/SmugControl.csproj" />
+    <Project Path="SmugglerLib/SmugOpenSource/SmugOpenSource.csproj" />
+  </Folder>
   <Project Path="Src/MainApp/MainApp.csproj" Id="ea2710b9-dbb9-44aa-95b5-8b5a0ac5de3c" />
 </Solution>

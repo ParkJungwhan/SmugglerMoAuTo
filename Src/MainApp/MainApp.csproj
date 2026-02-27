@@ -8,4 +8,15 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="HandyControls" Version="3.6.0" />
+    <PackageReference Include="HandyControls.Lang.ko-KR" Version="3.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\SmugglerLib\SmugCommon\SmugCommon.csproj" />
+    <ProjectReference Include="..\..\SmugglerLib\SmugControl\SmugControl.csproj" />
+    <ProjectReference Include="..\..\SmugglerLib\SmugOpenSource\SmugOpenSource.csproj" />
+  </ItemGroup>
+
 </Project>
