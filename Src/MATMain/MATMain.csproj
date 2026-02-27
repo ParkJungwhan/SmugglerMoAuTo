@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <None Remove="Datas\comm.png" />
+    <None Remove="Resources\Img\cloud.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -44,6 +45,10 @@
     <ProjectReference Include="..\..\SmugglerLib\SmugControl\SmugControl.csproj" />
     <ProjectReference Include="..\..\SmugglerLib\SmugOpenSource\SmugOpenSource.csproj" />
     <ProjectReference Include="..\MAT_Splash\MAT_Splash.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Img\cloud.png" />
   </ItemGroup>
 
 </Project>

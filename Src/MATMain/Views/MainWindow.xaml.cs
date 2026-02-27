@@ -1,14 +1,20 @@
-﻿namespace MATMain;
+﻿using MATMain.Views;
+
+namespace MATMain;
 
 /// <summary>
 /// Interaction logic for MainWindow.xaml
 /// </summary>
 public partial class MainWindow
 {
-    public MainWindow()
-    {
-        InitializeComponent();
+    public MainWindow() => InitializeComponent();
 
-        //this.SystemBackdropType = HandyControl.Tools.BackdropType.Mica;
+    protected override void OnContentRendered(EventArgs e)
+    {
+        base.OnContentRendered(e);
+
+        NonClientAreaContent = new NonClientAreaContent();
+
+        //ControlMain.Content = new MainWindowContent();
     }
 }

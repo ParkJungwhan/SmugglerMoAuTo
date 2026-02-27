@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Diagnostics;
+using System.Windows;
 using MATMain.ViewModels;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -53,7 +54,14 @@ public partial class App : Application
         var mainWindow = AppHost.Services.GetRequiredService<MainWindow>();
         mainWindow.DataContext = AppHost.Services.GetRequiredService<MainWindowModel>();
         //        mainWindow.SetSubControl(subitems);
-        mainWindow.Show();
+        try
+        {
+            mainWindow.Show();
+        }
+        catch (Exception ex)
+        {
+            Debug.Assert(false, ex.Message);
+        }
 
         base.OnStartup(e);
     }
