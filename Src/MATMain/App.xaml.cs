@@ -19,7 +19,6 @@ public partial class App : Application
         AppHost = Host.CreateDefaultBuilder()
             .ConfigureAppConfiguration((context, config) =>
             {
-                //config.AddJsonFile("appsettings.json", optional: true);
                 var env = context.HostingEnvironment;
 
                 config.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
@@ -29,6 +28,9 @@ public partial class App : Application
             })
             .ConfigureServices((context, services) =>
             {
+                //services.AddSingleton<SubItems>();
+                //services.AddSingleton<SubItemModel>();
+
                 services.AddSingleton<MainWindow>();
                 services.AddSingleton<MainWindowModel>();
             })
@@ -44,8 +46,13 @@ public partial class App : Application
     {
         await AppHost.StartAsync();
 
+        //var subitems = AppHost.Services.GetRequiredService<SubItems>();
+        //var viewmodel = AppHost.Services.GetRequiredService<SubItemModel>();
+        //subitems.DataContext = viewmodel;
+
         var mainWindow = AppHost.Services.GetRequiredService<MainWindow>();
         mainWindow.DataContext = AppHost.Services.GetRequiredService<MainWindowModel>();
+        //        mainWindow.SetSubControl(subitems);
         mainWindow.Show();
 
         base.OnStartup(e);

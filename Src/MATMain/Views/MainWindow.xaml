@@ -1,13 +1,22 @@
-﻿<hc:Window
+﻿<hc:Window xmlns:Views="clr-namespace:MATMain.Views"
     x:Class="MATMain.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:MATMain"
-    xmlns:hc="https://handyorg.github.io/handycontrol" mc:Ignorable="d" Title="MainWindow" Height="450" Width="800">
-    <hc:GlobalShortcut.KeyBindings>
-        <KeyBinding Key="F9" Command="{Binding GlobalShortcutErrorCmd}" />
-        <!--<KeyBinding Modifiers="Control+Alt" Key="E" Command="{Binding GlobalShortcutErrorCmd}" />
-        <KeyBinding Modifiers="Control+Alt" Key="I" Command="{Binding Main.GlobalShortcutInfoCmd, Source={StaticResource Locator}}" />-->
-    </hc:GlobalShortcut.KeyBindings>
+    xmlns:hc="https://handyorg.github.io/handycontrol" mc:Ignorable="d" Title="MAT" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="140" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!--<Views:IconRailControl Grid.Row="1"
+                               ItemsSource="{Binding SubModel.Items}"
+                               SelectedItem="{Binding SubModel.Selected, Mode=TwoWay}"
+                               ItemClickCommand="{Binding SubModel.itemClickCommand}"
+                               AddCommand="{Binding SubModel.AddCommand}" />-->
     </Grid>
 </hc:Window>

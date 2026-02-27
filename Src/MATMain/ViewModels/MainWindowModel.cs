@@ -1,5 +1,14 @@
-﻿namespace MATMain.ViewModels;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-internal class MainWindowModel
+namespace MATMain.ViewModels;
+
+internal partial class MainWindowModel : ObservableObject
 {
+    //[ObservableProperty]
+    //private IconRailControlViewModel subModel;
+
+    public MainWindowModel()
+    {
+        //subModel = new IconRailControlViewModel();
+    }
 }
