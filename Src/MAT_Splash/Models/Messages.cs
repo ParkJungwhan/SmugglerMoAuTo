@@ -1,0 +1,25 @@
+﻿using CommunityToolkit.Mvvm.Messaging.Messages;
+
+namespace MAT_Splash.Models;
+
+public enum ProcessState
+{
+    Initializing,
+    Running,
+    Completed,
+    Failed
+}
+
+public class BroadcastMessage : ValueChangedMessage<string>
+{
+    public BroadcastMessage(string msg) : base(msg)
+    {
+    }
+}
+
+public class ProcessBroadcastMessage : ValueChangedMessage<ProcessState>
+{
+    public ProcessBroadcastMessage(ProcessState ps) : base(ps)
+    {
+    }
+}

@@ -1,4 +1,11 @@
 <Solution>
+  <Configurations>
+    <Platform Name="x64" />
+  </Configurations>
+  <Folder Name="/Datas/">
+    <File Path="AGENTS.md" />
+    <File Path="README.md" />
+  </Folder>
   <Folder Name="/Lib/">
     <Project Path="SmugglerLib/SmugCommon/SmugCommon.csproj">
       <Platform Project="x64" />
@@ -6,5 +13,11 @@
     <Project Path="SmugglerLib/SmugControl/SmugControl.csproj" />
     <Project Path="SmugglerLib/SmugOpenSource/SmugOpenSource.csproj" />
   </Folder>
-  <Project Path="Src/MainApp/MainApp.csproj" Id="ea2710b9-dbb9-44aa-95b5-8b5a0ac5de3c" />
+  <Project Path="Src/MATMain/MATMain.csproj" Id="a92d32a0-bea8-46bc-92c0-93fbf7839436">
+    <Platform Project="x64" />
+    <Build Solution="Release|*" Project="false" />
+  </Project>
+  <Project Path="Src/MAT_Splash/MAT_Splash.csproj">
+    <Platform Project="x64" />
+  </Project>
 </Solution>
