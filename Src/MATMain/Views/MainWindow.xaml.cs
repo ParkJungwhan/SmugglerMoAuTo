@@ -1,4 +1,6 @@
-﻿using MATMain.Views;
+﻿using CommunityToolkit.Mvvm.Messaging;
+using MAT_Splash.Models;
+using MATMain.Views;
 
 namespace MATMain;
 
@@ -14,7 +16,5 @@ public partial class MainWindow
         base.OnContentRendered(e);
 
         NonClientAreaContent = new NonClientAreaContent();
-
-        //ControlMain.Content = new MainWindowContent();
     }
 }

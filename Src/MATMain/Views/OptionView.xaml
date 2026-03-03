@@ -1,0 +1,24 @@
+﻿<UserControl
+    x:Class="MATMain.Views.OptionView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"  xmlns:local="clr-namespace:MATMain.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:hc="https://handyorg.github.io/handycontrol" mc:Ignorable="d" d:DesignHeight="600" d:DesignWidth="400"
+    Background="{DynamicResource RegionBrush}">
+    <hc:UniformSpacingPanel Orientation="Vertical" Spacing="10">
+        <StackPanel Orientation="Vertical">
+            <hc:Divider Content="Common" HorizontalContentAlignment="Left" />
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical">
+            <hc:Divider Content="{Binding GoogleTitle}" d:Content="Google Play Games(D)" HorizontalContentAlignment="Left" />
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical">
+            <hc:Divider Content="Blue Stack" HorizontalContentAlignment="Left" />
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical">
+            <hc:Divider Content="LDPlayer" HorizontalContentAlignment="Left" />
+        </StackPanel>
+    </hc:UniformSpacingPanel>
+</UserControl>

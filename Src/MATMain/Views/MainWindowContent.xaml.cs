@@ -28,7 +28,7 @@ public partial class MainWindowContent : Border
         animation.Completed += OnAnimationCompleted;
         LeftMainContent.RenderTransform.BeginAnimation(TranslateTransform.XProperty, animation);
 
-        void OnAnimationCompleted(object _, EventArgs args)
+        void OnAnimationCompleted(object obj, EventArgs args)
         {
             animation.Completed -= OnAnimationCompleted;
             LeftMainContent.RenderTransform.SetCurrentValue(TranslateTransform.XProperty, targetValue);
@@ -54,7 +54,7 @@ public partial class MainWindowContent : Border
         animation.Completed += OnAnimationCompleted;
         LeftMainContent.RenderTransform.BeginAnimation(TranslateTransform.XProperty, animation);
 
-        void OnAnimationCompleted(object _, EventArgs args)
+        void OnAnimationCompleted(object obj, EventArgs args)
         {
             animation.Completed -= OnAnimationCompleted;
             LeftMainContent.RenderTransform.SetCurrentValue(TranslateTransform.XProperty, targetValue);
@@ -66,5 +66,14 @@ public partial class MainWindowContent : Border
             ColumnDefinitionLeft.Width = _columnDefinitionWidth;
             ButtonShiftOut.Show();
         }
+    }
+
+    private void DrawerCode_OnOpened(object sender, RoutedEventArgs e)
+    {
+    }
+
+    private void DrawerCode_Closed(object sender, RoutedEventArgs e)
+    {
+        // 설정이 완료됐으니 반영하라. IsDirty를 확인하여 진행
     }
 }

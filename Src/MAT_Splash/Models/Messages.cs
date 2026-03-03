@@ -23,3 +23,10 @@ public class ProcessBroadcastMessage : ValueChangedMessage<ProcessState>
     {
     }
 }
+
+public class ChangeBoolMessage : ValueChangedMessage<bool>
+{
+    public ChangeBoolMessage(bool ps) : base(ps)
+    {
+    }
+}

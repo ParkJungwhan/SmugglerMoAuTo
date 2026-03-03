@@ -2,9 +2,9 @@
     x:Class="MATMain.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:MATMain.Views"
-    Background="{DynamicResource SecondaryRegionBrush}" ShowTitle="False"
+    Background="{DynamicResource SecondaryRegionBrush}" ShowTitle="true"
     hc:Empty.ShowEmpty="True" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen"
-    xmlns:hc="https://handyorg.github.io/handycontrol" mc:Ignorable="d" Title="MAT" Height="450" Width="800">
+    xmlns:hc="https://handyorg.github.io/handycontrol" mc:Ignorable="d" Title="{Binding AppTitle}" Height="450" Width="800">
     <!--<ContentControl Name="ControlMain" />-->
     <local:MainWindowContent />
 </hc:Window>

@@ -29,9 +29,6 @@ public partial class App : Application
             })
             .ConfigureServices((context, services) =>
             {
-                //services.AddSingleton<SubItems>();
-                //services.AddSingleton<SubItemModel>();
-
                 services.AddSingleton<MainWindow>();
                 services.AddSingleton<MainWindowModel>();
             })
@@ -45,15 +42,12 @@ public partial class App : Application
 
     protected override async void OnStartup(StartupEventArgs e)
     {
-        await AppHost.StartAsync();
+        if (AppHost is null) return;
 
-        //var subitems = AppHost.Services.GetRequiredService<SubItems>();
-        //var viewmodel = AppHost.Services.GetRequiredService<SubItemModel>();
-        //subitems.DataContext = viewmodel;
+        await AppHost.StartAsync();
 
         var mainWindow = AppHost.Services.GetRequiredService<MainWindow>();
         mainWindow.DataContext = AppHost.Services.GetRequiredService<MainWindowModel>();
-        //        mainWindow.SetSubControl(subitems);
         try
         {
             mainWindow.Show();

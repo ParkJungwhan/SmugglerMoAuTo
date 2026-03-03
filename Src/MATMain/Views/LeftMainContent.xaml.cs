@@ -9,7 +9,7 @@ namespace MATMain.Views;
 /// </summary>
 public partial class LeftMainContent
 {
-    private string _searchKey;
+    //private string _searchKey;
 
     public LeftMainContent() => InitializeComponent();
 

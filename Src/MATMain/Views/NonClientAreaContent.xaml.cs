@@ -11,5 +11,10 @@ namespace MATMain.Views
         {
             InitializeComponent();
         }
+
+        private void ButtonConfig_OnClick(object sender, System.Windows.RoutedEventArgs e)
+        {
+            // message
+        }
     }
 }

@@ -7,8 +7,10 @@
         <ColumnDefinition Width="Auto" />
     </Grid.ColumnDefinitions>
 
-    <StackPanel VerticalAlignment="Stretch" Orientation="Horizontal">
+    <!--<StackPanel VerticalAlignment="Stretch" Orientation="Horizontal">-->
+    <StackPanel VerticalAlignment="Center">
     </StackPanel>
-    <Button Grid.Column="1"  Name="ButtonConfig" Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource ConfigGeometry}" />
+    <Button Grid.Column="1"  Name="ButtonConfig" Style="{StaticResource ButtonIcon}"
+            hc:IconElement.Geometry="{StaticResource ConfigGeometry}" Click="ButtonConfig_OnClick" />
     <!--Click="ButtonConfig_OnClick"-->
 </Grid>

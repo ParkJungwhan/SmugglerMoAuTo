@@ -2,6 +2,8 @@
 using System.Windows.Controls;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Messaging;
+using MATMain.Models;
 
 namespace MATMain.ViewModels;
 
@@ -39,14 +41,23 @@ internal partial class LeftMainContentModel : ObservableObject
             if (args.AddedItems[0] is SubItemInfo)
             {
                 var selectedItem = args.AddedItems[0] as SubItemInfo;
-                //selectedIndex = args.
+                if (selectedItem is null) return;
+
+                // 메시지로 maincontent에 선택한 항목을 보여주는걸로 던져야 함
+                WeakReferenceMessenger.Default.Send<ChangeItemMessage>(new ChangeItemMessage(selectedItem));
             }
         }
     }
 
     private void CmdAddItem()
     {
-        ItemList.Add(new SubItemInfo() { Name = $"Sub Item {ItemList.Count + 1}" });
+        var subitem = new SubItemInfo()
+        {
+            Name = $"Sub Item {ItemList.Count + 1}",
+        };
+        subitem.SetTicker();
+
+        ItemList.Add(subitem);
     }
 }
 
@@ -54,6 +65,12 @@ public class SubItemInfo
 {
     public string Name { get; set; } = "-";
     public bool IsNew { get; set; }
-    public string QueriesText { get; set; }
     public bool IsVisible { get; set; } = true;
+    public string TimeTicker { get; private set; }
+
+    //public string QueriesText { get; set; }
+    public void SetTicker()
+    {
+        TimeTicker = $"{Name.Replace(' ', '_')}{TimeTicker}";
+    }
 }
