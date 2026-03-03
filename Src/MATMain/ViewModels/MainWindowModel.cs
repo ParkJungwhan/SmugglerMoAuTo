@@ -8,7 +8,7 @@ using MATMain.Models;
 
 namespace MATMain.ViewModels;
 
-internal partial class MainWindowModel : ObservableObject, IRecipient<ChangeItemMessage>
+internal partial class MainWindowModel : ObservableObject//, IRecipient<ChangeItemMessage>
 {
     [ObservableProperty]
     private LeftMainContentModel leftModel;
@@ -43,7 +43,7 @@ internal partial class MainWindowModel : ObservableObject, IRecipient<ChangeItem
             new(this.CmdOption, Key.F12, ModifierKeys.None)
         });
 
-        WeakReferenceMessenger.Default.Register<ChangeItemMessage>(this);
+        //WeakReferenceMessenger.Default.Register<ChangeItemMessage>(this);
     }
 
     private RelayCommand CmdSaveProject => new(() =>
@@ -64,10 +64,10 @@ internal partial class MainWindowModel : ObservableObject, IRecipient<ChangeItem
         Debug.WriteLine($"{DateTime.Now}\t Show Option View");
     });
 
-    public void Receive(ChangeItemMessage message)
-    {
-        IsCodeOpened = true;
-        // 메시지를 받으면 데이터를 뒤져서 Sub Tab 들을 다시 구성해서 화면을 보여준다
-        // 그동안 progress를 보여주고 그동안 데이터를 구성한다.
-    }
+    //public void Receive(ChangeItemMessage message)
+    //{
+    //    IsCodeOpened = true;
+    //    // 메시지를 받으면 데이터를 뒤져서 Sub Tab 들을 다시 구성해서 화면을 보여준다
+    //    // 그동안 progress를 보여주고 그동안 데이터를 구성한다.
+    //}
 }

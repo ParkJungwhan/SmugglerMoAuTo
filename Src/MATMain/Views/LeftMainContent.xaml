@@ -6,19 +6,19 @@
     hc:ScrollViewer.IsInertiaEnabled="True" Background="{DynamicResource RegionBrush}"
     CornerRadius="10" Effect="{StaticResource EffectShadow4}">
     <DockPanel>
-        <Button  DockPanel.Dock="Top" HorizontalAlignment="Stretch" Command="{Binding AddItem}"
-                Margin="10,10,10,4" Content="{Binding AddTitle}" d:Content="Add item" BorderThickness="0" Background="{DynamicResource SecondaryRegionBrush}" />
+        <Button DockPanel.Dock="Top" HorizontalAlignment="Stretch" Command="{Binding AddItem}"
+                Margin="10,10,10,4" Content="{Binding AddTitle}" d:Content="Add Item" BorderThickness="0" Background="{DynamicResource SecondaryRegionBrush}" />
 
-        <ListBox BorderThickness="0 1 0 0" Padding="0" ScrollViewer.CanContentScroll="False" Grid.Row="1" VirtualizingStackPanel.IsVirtualizing="True"
-         SelectedIndex="{Binding SelectedIndex}" ItemsSource="{Binding ItemList}" SelectionMode="Single" Background="Transparent" Style="{StaticResource ListBoxTransparent}">
+        <ListBox
+            BorderThickness="0 1 0 0" Padding="0" ScrollViewer.CanContentScroll="False" Grid.Row="1" VirtualizingStackPanel.IsVirtualizing="True" HorizontalAlignment="Stretch"
+            SelectedIndex="{Binding SelectedIndex}" ItemsSource="{Binding ItemList}" SelectionMode="Single" Background="Transparent" Style="{StaticResource ListBoxTransparent}"
+            d:ItemsSource="{d:SampleData ItemCount=3}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <!--<Rectangle Width="16" Height="16" Fill="{Binding ImageBrush}" />-->
-                        <!--SourceText="{ex:Lang Key={Binding Name}}"-->
-                        <hc:HighlightTextBlock Margin="6,0,0,0" SourceText="{Binding Name}" QueriesText="{Binding QueriesText}" />
-                        <Path Visibility="{Binding IsNew,Converter={StaticResource Boolean2VisibilityConverter}}" VerticalAlignment="Center"
-                              Data="{StaticResource NewGeometry}" Stretch="Uniform" Margin="10,0,0,0" Width="30" Height="14" Fill="{DynamicResource AccentBrush}" />
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                        <!--<Path VerticalAlignment="Center" HorizontalAlignment="Left" Data="{StaticResource DragVerticalGeometry}"
+                              Stretch="Uniform" Margin="10,0,0,0" Width="10" Height="14" Fill="{DynamicResource BorderBrush}" />-->
+                        <hc:HighlightTextBlock x:Name="highttextbox" Margin="6,0,0,0" SourceText="{Binding Name}" QueriesText="{Binding QueriesText}" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

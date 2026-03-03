@@ -16,6 +16,9 @@ internal partial class LeftMainContentModel : ObservableObject
     private RelayCommand addItem;
 
     [ObservableProperty]
+    private RelayCommand changeItem;
+
+    [ObservableProperty]
     private RelayCommand<SelectionChangedEventArgs> switchitemCmd;
 
     [ObservableProperty]
@@ -24,6 +27,8 @@ internal partial class LeftMainContentModel : ObservableObject
     [ObservableProperty]
     private int selectedIndex;
 
+    private SubItemInfo SelectInfo;
+
     public LeftMainContentModel()
     {
         addTitle = "Add Item";
@@ -31,7 +36,13 @@ internal partial class LeftMainContentModel : ObservableObject
         ItemList = new ObservableCollection<SubItemInfo>();
 
         AddItem = new RelayCommand(CmdAddItem);
+        ChangeItem = new RelayCommand(CmdChangeName);
         SwitchitemCmd = new RelayCommand<SelectionChangedEventArgs>(CmdSwitchItem);
+    }
+
+    private void CmdChangeName()
+    {
+        var sss = SelectInfo.Name;
     }
 
     private void CmdSwitchItem(SelectionChangedEventArgs? args)
@@ -40,11 +51,11 @@ internal partial class LeftMainContentModel : ObservableObject
         {
             if (args.AddedItems[0] is SubItemInfo)
             {
-                var selectedItem = args.AddedItems[0] as SubItemInfo;
-                if (selectedItem is null) return;
+                SelectInfo = args.AddedItems[0] as SubItemInfo;
+                if (SelectInfo is null) return;
 
                 // 메시지로 maincontent에 선택한 항목을 보여주는걸로 던져야 함
-                WeakReferenceMessenger.Default.Send<ChangeItemMessage>(new ChangeItemMessage(selectedItem));
+                WeakReferenceMessenger.Default.Send<ChangeItemMessage>(new ChangeItemMessage(SelectInfo));
             }
         }
     }

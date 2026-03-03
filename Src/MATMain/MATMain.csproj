@@ -7,6 +7,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
     <Platforms>x64</Platforms>
+    <BaseOutputPath>..\..\Bin\</BaseOutputPath>
   </PropertyGroup>
 
   <ItemGroup>
@@ -36,10 +37,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\SmugglerLib\SmugCommon\SmugCommon.csproj" />
     <ProjectReference Include="..\..\SmugglerLib\SmugControl\SmugControl.csproj" />
     <ProjectReference Include="..\..\SmugglerLib\SmugOpenSource\SmugOpenSource.csproj" />
@@ -48,6 +45,15 @@
 
   <ItemGroup>
     <Resource Include="Resources\Img\cloud.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="mat.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="mat.rsd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

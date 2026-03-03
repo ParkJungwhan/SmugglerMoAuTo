@@ -9,9 +9,10 @@ namespace MATMain.Views;
 /// </summary>
 public partial class LeftMainContent
 {
-    //private string _searchKey;
-
-    public LeftMainContent() => InitializeComponent();
+    public LeftMainContent()
+    {
+        InitializeComponent();
+    }
 
     private void TabControl_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
@@ -28,8 +29,4 @@ public partial class LeftMainContent
     private void FilterItems()
     {
     }
-
-    //private void GroupItems(TabControl tabControl, DemoInfoModel demoInfo)
-    //{
-    //}
 }
