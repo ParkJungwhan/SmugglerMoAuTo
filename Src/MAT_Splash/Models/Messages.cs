@@ -30,3 +30,10 @@ public class ChangeBoolMessage : ValueChangedMessage<bool>
     {
     }
 }
+
+public class ProcessRunMessage : ValueChangedMessage<string>
+{
+    public ProcessRunMessage(string ps) : base(ps)
+    {
+    }
+}

@@ -11,7 +11,7 @@
                 <RowDefinition Height="30" />
             </Grid.RowDefinitions>
 
-            <Border BorderThickness="1" BorderBrush="red" CornerRadius="12">
+            <Border BorderThickness="1" BorderBrush="{StaticResource BorderBrush}" CornerRadius="12">
                 <Image Source="{Binding CopyImg}"
                        Stretch="{Binding SelectedStretch}"
                    RenderOptions.BitmapScalingMode="HighQuality" />

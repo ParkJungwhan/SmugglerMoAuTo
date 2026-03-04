@@ -44,6 +44,16 @@ public partial class App : Application
     {
         if (AppHost is null) return;
 
+        if (e.Args.Any())
+        {
+            // 정상 실행 부분. 그외는 디버그 모드 아니면 제외해야함
+            //"--launchedBySplash"
+            if (e.Args[0].ToLower() != "--launchedBySplash".ToLower())
+            {
+                return;
+            }
+        }
+
         await AppHost.StartAsync();
 
         var mainWindow = AppHost.Services.GetRequiredService<MainWindow>();

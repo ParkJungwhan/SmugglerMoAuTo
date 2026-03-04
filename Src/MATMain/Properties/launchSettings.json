@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MATMain": {
+      "commandName": "Project",
+      "commandLineArgs": "--launchedBySplash"
+    }
+  }
+}

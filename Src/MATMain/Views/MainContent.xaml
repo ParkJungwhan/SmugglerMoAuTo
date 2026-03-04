@@ -14,24 +14,62 @@
                 <Border Name="BorderEffect" Grid.RowSpan="2" Background="{DynamicResource RegionBrush}" CornerRadius="10" Effect="{StaticResource EffectShadow4}" />
                 <Border Height="32" Name="BorderTitle" Grid.Row="0" CornerRadius="10,10,0,0" Background="{DynamicResource TitleBrush}" Style="{StaticResource BorderClip}">
                     <hc:SimplePanel>
-                        <!--<hc:Watermark Mark="{Binding ContentTitle}" MarkMargin="3,0" FontSize="20" FontWeight="Bold" MarkBrush="#0F000000" />-->
                         <TextBlock Style="{StaticResource TextBlockDefault}" Foreground="White" Text="{Binding ContentTitle}" d:Text="Title" />
 
-                        <Button Command="{Binding CmdPlayMacro}" Height="26" Width="30" Margin="6,0,0,0" Padding="5" Foreground="{DynamicResource TextIconBrush}"
-                                Style="{StaticResource ButtonIcon}" HorizontalAlignment="Left" hc:IconElement.Geometry="{StaticResource DocumentGeometry}" />
-                        <!--<ToggleButton Margin="0,0,6,0" IsChecked="{Binding IsCodeOpened}" Padding="5" Foreground="{DynamicResource TextIconBrush}"
-                                      Style="{StaticResource ToggleButtonIconTransparent}" HorizontalAlignment="Right" hc:IconElement.Geometry="{StaticResource CodeGeometry}" />-->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <Button Command="{Binding CmdPlayMacro}" Height="26" Width="30" Margin="6,0,0,0" Padding="5" Foreground="{DynamicResource TextIconBrush}"
+                                    Style="{StaticResource ButtonIcon}" HorizontalAlignment="Left" hc:IconElement.Geometry="{StaticResource RightGeometry}" />
+                            <Button Command="{Binding CmdProjectOption}" Height="26" Width="30" Margin="0" Padding="5" Foreground="{DynamicResource TextIconBrush}"
+                                    Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource ConfigGeometry}" Name="ButtonConfig" />
+                            <Popup IsOpen="{Binding IsOptionOpen}" AllowsTransparency="True" PlacementTarget="{Binding ElementName=ButtonConfig}" Placement="Center"
+                                   VerticalOffset="80" StaysOpen="False" Width="270">
+                                <Border Background="{DynamicResource SecondaryRegionBrush}" CornerRadius="4" Margin="16" Effect="{StaticResource EffectShadow2}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <hc:UniformSpacingPanel  Orientation="Vertical" Margin="10" Spacing="10" ChildWrapping="Wrap">
+                                            <Button Content="test" />
+                                            <hc:ElementGroup>
+                                                <hc:ElementGroup.ItemsPanel>
+                                                    <ItemsPanelTemplate>
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="160" />
+                                                                <ColumnDefinition Width="Auto" />
+                                                            </Grid.ColumnDefinitions>
+                                                        </Grid>
+                                                    </ItemsPanelTemplate>
+                                                </hc:ElementGroup.ItemsPanel>
+                                                <TextBox HorizontalAlignment="Stretch" DockPanel.Dock="Left" Text="{Binding ContentTitle}" />
+                                                <Button Command="{Binding CmdChangeTitle}" Grid.Column="1" Width="60" Content="Submit" DockPanel.Dock="Right" HorizontalAlignment="Right" Style="{StaticResource ButtonPrimary}" />
+                                            </hc:ElementGroup>
+                                        </hc:UniformSpacingPanel>
+                                        <hc:Divider LineStrokeDashArray="2,2" Orientation="Vertical" Margin="0,20" LineStrokeThickness="1" />
+                                    </StackPanel>
+                                </Border>
+                            </Popup>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <Button Command="{Binding CmdAddTab}" Height="26" Width="30" Margin="0" Padding="5" Foreground="{DynamicResource TextIconBrush}"
+                                    Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource AddGeometry}" />
+                        </StackPanel>
                     </hc:SimplePanel>
                 </Border>
                 <Border Grid.Row="1" ClipToBounds="True">
-                    <hc:TabControl ShowOverflowButton="False" ShowScrollButton="True"  IsScrollable="True">
-                        <hc:TabItem Header="TabItem1" IsSelected="True">
-                            <hc:SimplePanel Background="{DynamicResource RegionBrush}">
-                                <DetailViews:ControllerPageView />
-                            </hc:SimplePanel>
-                        </hc:TabItem>
+                    <hc:TabControl ItemsSource="{Binding SubTabs}" SelectedIndex="{Binding CurrentIndex}"
+                                   ShowOverflowButton="False" ShowScrollButton="True"  IsScrollable="True">
+                        <hc:TabControl.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding TabHeaderName}" />
+                            </DataTemplate>
+                        </hc:TabControl.ItemTemplate>
+                        <hc:TabControl.ContentTemplate>
+                            <DataTemplate>
+                                <hc:SimplePanel Background="{DynamicResource RegionBrush}">
+                                    <DetailViews:ControllerPageView />
+                                </hc:SimplePanel>
+                            </DataTemplate>
+                        </hc:TabControl.ContentTemplate>
                     </hc:TabControl>
-                    <!--<ContentPresenter Name="PresenterMain" Margin="0,0,0,10" Content="{Binding SubContent}" />-->
                 </Border>
             </Grid>
         </Border>

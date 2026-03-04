@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Messaging;
 using MainAppSplash.ViewModels;
 using MainAppSplash.Views;
 using MAT_Splash.Models;
+using MAT_Splash.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -13,7 +14,7 @@ namespace MainAppSplash;
 /// <summary>
 /// Interaction logic for App.xaml
 /// </summary>
-public partial class App : Application
+public partial class App : Application, IRecipient<ProcessRunMessage>
 {
     public static IHost AppHost { get; private set; }
 
@@ -44,6 +45,8 @@ public partial class App : Application
                 logging.AddConsole();
             })
             .Build();
+
+        WeakReferenceMessenger.Default.Register<ProcessRunMessage>(this);
     }
 
     protected override async void OnStartup(StartupEventArgs e)
@@ -68,5 +71,10 @@ public partial class App : Application
         AppHost.Dispose();
 
         base.OnExit(e);
+    }
+
+    public void Receive(ProcessRunMessage message)
+    {
+        MainLauncher.StartMainAndExit(message.Value, new[] { "--launchedBySplash" });
     }
 }
